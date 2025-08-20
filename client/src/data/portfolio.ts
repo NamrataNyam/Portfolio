@@ -27,6 +27,25 @@ export interface Project {
   images: { src: string; alt: string; caption?: string }[];
 }
 
+export interface OpenSourceContribution {
+  title: string;
+  description: string;
+  platform: string;
+  type: "dataset" | "code" | "model" | "paper";
+  stats: {
+    downloads?: number;
+    views?: number;
+    upvotes?: number;
+    forks?: number;
+    stars?: number;
+    citations?: number;
+  };
+  tech: string[];
+  link: string;
+  highlights: string[];
+  datePublished: string;
+}
+
 export const portfolio = {
   hero: {
     name: "Namrata Nyamagoudar",
@@ -166,6 +185,29 @@ export const portfolio = {
         { src: "/images/stocks/preprocessing.png", alt: "Data preprocessing pipeline", caption: "Feature engineering and missing value handling pipeline" },
         { src: "/images/stocks/comparison.png", alt: "Model comparison", caption: "Neural Network (52.38%) vs LightGBM (52.08%) accuracy comparison" }
       ]
+    }
+  ],
+  openSource: [
+    {
+      title: "Wealth Segmentation of U.S. Zip Codes",
+      description: "Comprehensive dataset for demographic and economic analysis of U.S. zip codes, enabling wealth segmentation and socioeconomic research with 33,000+ zip code records.",
+      platform: "Kaggle",
+      type: "dataset" as const,
+      stats: {
+        downloads: 1200,
+        views: 8500,
+        upvotes: 45
+      },
+      tech: ["Demographics", "Economic Data", "GIS", "Census Data", "Data Analytics"],
+      link: "https://www.kaggle.com/datasets/namratanyam/wealth-segmentation-of-u-s-zip-codes",
+      highlights: [
+        "33,000+ U.S. zip code records with demographic and economic indicators",
+        "Wealth segmentation features including median income, property values, education levels",
+        "Geographic coordinates for spatial analysis and visualization",
+        "Clean, analysis-ready dataset with comprehensive documentation",
+        "Enables research in urban planning, market analysis, and socioeconomic studies"
+      ],
+      datePublished: "2024"
     }
   ],
   contact: {

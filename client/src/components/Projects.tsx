@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ProjectModal } from "./ProjectModal";
+import { OpenSourceContributions } from "./OpenSourceContributions";
 import { portfolio } from "@/data/portfolio";
 import { useCallback, useEffect } from "react";
 
@@ -183,45 +184,8 @@ export function Projects() {
             </motion.div>
           </div>
 
-          {/* All Projects Grid */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="mt-16"
-          >
-            <h3 className="text-2xl font-semibold text-charcoal dark:text-white mb-8 text-center">All Projects</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              {portfolio.projects.map((project, index) => (
-                <Card key={project.title} className="border-border hover:shadow-lg transition-shadow duration-300">
-                  <CardContent className="p-6">
-                    <h4 className="text-lg font-semibold text-charcoal dark:text-white mb-2">
-                      {project.title.split("—")[0].trim()}
-                    </h4>
-                    <p className="text-muted-foreground text-sm mb-4">{project.oneLiner}</p>
-                    
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {project.tech.slice(0, 3).map((tech) => (
-                        <Badge key={tech} variant="secondary" className="bg-sage/10 text-sage font-mono text-xs">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => setSelectedProject(project)}
-                      className="border-sage text-sage hover:bg-sage hover:text-white"
-                    >
-                      View Details
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </motion.div>
+          {/* Open Source Contributions */}
+          <OpenSourceContributions />
         </div>
       </section>
 
