@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Code, Mail, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { portfolio } from "@/data/portfolio";
+import { AvatarUpload } from "@/components/AvatarUpload";
 
 export function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -20,8 +21,18 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-8"
+            className="mb-8 flex flex-col items-center"
           >
+            {/* Hero Avatar Photo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mb-8"
+            >
+              <AvatarUpload size="md" />
+            </motion.div>
+
             <h1 className="text-5xl lg:text-7xl font-bold text-charcoal dark:text-white mb-6 tracking-tight">
               Namrata{" "}
               <span className="text-sage">Nyamagoudar</span>
