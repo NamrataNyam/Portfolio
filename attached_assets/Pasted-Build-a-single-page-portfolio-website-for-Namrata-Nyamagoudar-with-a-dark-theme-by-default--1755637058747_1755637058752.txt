@@ -1,0 +1,211 @@
+Build a single-page portfolio website for **Namrata Nyamagoudar** with a **dark theme** by default.
+
+## Tech & Structure
+- Use **React + Vite** with **Tailwind CSS**. Add **Framer Motion** for subtle fades/slide-ins.
+- Implement two carousel levels with **Embla Carousel** (or a lightweight vanilla carousel):
+  1) A **Projects Slideshow** (top of Projects section) that scrolls through featured projects.
+  2) Inside each project card, a **Results Slideshow** that shows multiple result images with captions.
+- Accessibility: keyboard nav for all carousels (←/→), focus states, alt text on every image.
+- Responsive: look great from 360px → 1440px+.
+
+## Global Look & Feel
+- **Dark theme** default. Provide a sun/moon **theme toggle** (persist in localStorage; respect `prefers-color-scheme`).
+- Palette: near-black background, soft gray surfaces, high-contrast headings, accent on links/CTAs. Rounded-2xl cards, soft shadows, generous spacing.
+- Typography: large name in hero (2.5–3rem), compact, scannable body text.
+
+## Sections & Content
+### 1) Header
+- Left: “NN” monogram → clicking scrolls to top.
+- Right: nav links: About • Experience • Research • Projects • Contact • Resume (button).
+
+### 2) Hero
+- Name: **Namrata Nyamagoudar**
+- One-liner: **“AI/ML engineer who ships reliable models and data systems — computer vision, audio, and agentic workflows.”**
+- CTAs: **View Projects**, **Get in Touch**, **Download Resume** (link to `/resume/Namrata_Nyamagoudar_Resume.pdf`).
+
+### 3) About
+Short, skill-centric (no job-specific narrative here):
+- Focus areas: **Computer Vision**, **Agentic/RAG Workflows**, **Audio ML**, **Distributed Data Systems**.
+- Core tools (condense into a tasteful tag cloud): Python (PyTorch, HF Transformers), LangChain/LangGraph, Snowflake/Snowpark, AWS/Azure/Docker/K8s, SQL/NoSQL, TypeScript.  
+- Soft skills: **problem framing**, **measurement-first**, **shipping end-to-end**.
+
+### 4) Professional Experience
+Single card (timeline style ok):
+- **Spookfish Innovations — Computer Vision (Industry Project/Internship)**
+  - Built a **YOLOv4 + DeepSORT** pipeline to **track tablets/capsules** on production trays.
+  - Notes to display as bullet points:
+    - Targeted near real-time performance; **objective ~20–30 FPS**; achieved **~9–20 FPS** in tests with **rare ID switches**.
+    - Training data prepared in YOLO format; tracking used **Kalman filter + Hungarian assignment**.
+    - Reported **~95% detection accuracy** (YOLOv4) for tablets/capsules in this setup.
+  - “Read more” expands details + mini results slideshow (see Data → `projects.spookfish.images`).
+
+### 5) Research
+Two research items (cards with compact summaries + links):
+- **UC Irvine — ML Research Assistant (Audio)**
+  - Estimated auditory filter bandwidths from psychoacoustic data (MATLAB); fine-tuned **Audio Spectrogram Transformer (AST)** in PyTorch for time-frequency classification.
+- **Vision-based Evaluation of Micro-suturing**
+  - Automated scoring of micro-suturing (inter-suture distance, angulation, size/position). Experiments with **HOG-SVM**, **Haar Cascade**, Hough/contour methods. Include 2–4 sample result images.
+
+### 6) Projects (with top-level slideshow)
+- At the top: **Featured Projects Carousel** showing 3–5 cards (title, one-liner, tech tags). Each card opens a drawer/modal that contains the **per-project Results Slideshow** (images + captions).
+- Projects to include:
+  1) **Humma.AI — LLM Fine-tuning for Conversation Quality (UCI Capstone)**  
+     - Fine-tuned **LLaMA 3.1 (8B)** with PEFT (LoRA, FSDP), persona prompts; achieved **EQ60 = 53 vs 45 baseline**.  
+     - Dockerized React app on AWS EC2, S3-backed artifacts; custom evaluation (VADER, emotion analysis).  
+     - Results slideshow: prompt→response comparisons, EQ60 plots, evaluation screenshots.
+  2) **Heritage Image Inpainting**  
+     - Occlusion removal with **Mask R-CNN**; inpainting via **contextual attention + GAN**.  
+     - Quant: **PSNR 34.63 (DCGAN) vs 31.56 (WGAN-GP)**; **test time 27.279s → 7.273s** after optimizations.  
+     - Results slideshow: masked input → inpainted output comparisons.
+  3) **Mini DynamoDB — Distributed KV Store**  
+     - C++ + gRPC; **consistent hashing**; **ZooKeeper** for leader election; **gossip** for eventual consistency; **LSM-trees** for throughput.  
+     - Slideshow: architecture diagrams, latency/throughput plots (placeholders ok).
+  4) **US Stock Movement Prediction**  
+     - Compared **Neural Net**, LightGBM, RF; best **NN accuracy ≈ 0.5238** on challenge data (LightGBM ≈ 0.5208).  
+     - Slideshow: feature preprocessing, metric tables, confusion charts (placeholders ok).
+
+### 7) Contact
+- Email, GitHub, LinkedIn buttons. Add a simple form (name/email/message) → use Formspree or mailto link.
+
+### 8) Footer
+- Minimal. Theme toggle mirrored here. “© Namrata Nyamagoudar”.
+
+## Data Model
+Create `/src/data/portfolio.ts` and drive the UI from it. Example shape (fill with provided content):
+
+export const portfolio = {
+  hero: {
+    name: "Namrata Nyamagoudar",
+    tagline: "AI/ML engineer who ships reliable models and data systems — computer vision, audio, and agentic workflows.",
+    ctas: [
+      { label: "View Projects", href: "#projects", style: "primary" },
+      { label: "Get In Touch", href: "#contact", style: "ghost" },
+      { label: "Download Resume", href: "/resume/Namrata_Nyamagoudar_Resume.pdf", style: "outline" }
+    ]
+  },
+  experience: [
+    {
+      company: "Spookfish Innovations",
+      role: "Computer Vision (Industry Project/Intern)",
+      summary: "YOLOv4 + DeepSORT tracker for tablet/capsule packaging lines; near real-time multi-object tracking with robust ID maintenance.",
+      bullets: [
+        "Objective ~20–30 FPS; achieved ~9–20 FPS in tests with rare ID switches.",
+        "YOLO-format detections; Kalman filter + Hungarian assignment for associations.",
+        "Reported ~95% YOLOv4 detection accuracy for tablets/capsules in this setup."
+      ],
+      tech: ["YOLOv4", "DeepSORT", "Kalman Filter", "Hungarian Algorithm", "TensorFlow/PyTorch"],
+      images: [
+        { src: "/images/spookfish/1.png", alt: "Tablet tracking — round tablets", caption: "Tracking with stable IDs after buffer frames" },
+        { src: "/images/spookfish/2.png", alt: "Capsule tracking", caption: "Capsule trays and detection bounding boxes" },
+        { src: "/images/spookfish/3.png", alt: "Performance chart", caption: "Observed FPS across scenes" }
+      ]
+    }
+  ],
+  research: [
+    {
+      title: "UC Irvine — ML Research Assistant (Audio)",
+      summary: "Estimated auditory filter bandwidths; fine-tuned AST for time-frequency audio classification.",
+      tech: ["MATLAB", "PyTorch", "torchaudio", "AST"],
+      images: [
+        { src: "/images/research/audio-1.png", alt: "AST spectrogram", caption: "Spectrogram input to AST" }
+      ]
+    },
+    {
+      title: "Vision-based Evaluation of Micro-suturing",
+      summary: "Automated scoring of suturing quality using classical vision + learning.",
+      tech: ["OpenCV", "HOG-SVM", "Haar Cascade"],
+      images: [
+        { src: "/images/research/microsuture-1.png", alt: "Suture detection", caption: "HOG-SVM detection and scoring overlay" }
+      ]
+    }
+  ],
+  projects: [
+    {
+      title: "Humma.AI — LLM Fine-tuning for Conversation Quality",
+      featured: true,
+      oneLiner: "PEFT-tuned LLaMA 3.1 (8B) with persona prompting; EQ60 uplift.",
+      details: [
+        "EQ60 = 53 vs 45 baseline (custom evaluation).",
+        "Dockerized React app on EC2; artifacts on S3; VADER + emotion analysis."
+      ],
+      tech: ["LLaMA 3.1 (8B)", "PEFT (LoRA, FSDP)", "AWS EC2/S3", "Docker", "React"],
+      links: { demo: "", repo: "" },
+      images: [
+        { src: "/images/humma/1.png", alt: "EQ60 chart", caption: "EQ60 improvement vs baseline" },
+        { src: "/images/humma/2.png", alt: "Prompt/response", caption: "Prompt → response comparison" }
+      ]
+    },
+    {
+      title: "Heritage Image Inpainting",
+      featured: true,
+      oneLiner: "Mask R-CNN occlusion removal + GAN inpainting with contextual attention.",
+      details: [
+        "PSNR: 34.63 (DCGAN) vs 31.56 (WGAN-GP).",
+        "Test time optimization: 27.279s → 7.273s."
+      ],
+      tech: ["Mask R-CNN", "DCGAN", "Contextual Attention", "PyTorch"],
+      links: { repo: "" },
+      images: [
+        { src: "/images/inpaint/1.png", alt: "Masked input", caption: "Input with occlusion + mask" },
+        { src: "/images/inpaint/2.png", alt: "Inpainted output", caption: "DCGAN inpainted result" },
+        { src: "/images/inpaint/3.png", alt: "PSNR table", caption: "Quantitative metrics" }
+      ]
+    },
+    {
+      title: "Mini DynamoDB — Distributed KV Store",
+      featured: false,
+      oneLiner: "Consistent hashing, LSM-trees, gossip-based eventual consistency.",
+      details: [
+        "gRPC for inter-node RPC; ZooKeeper for leader election/fault tolerance."
+      ],
+      tech: ["C++", "gRPC", "ZooKeeper", "LSM-trees", "Distributed Systems"],
+      links: { repo: "" },
+      images: [
+        { src: "/images/kv/arch.png", alt: "KV architecture", caption: "Shard/replica topology" }
+      ]
+    },
+    {
+      title: "US Stock Movement Prediction",
+      featured: false,
+      oneLiner: "Neural network vs LightGBM on residual return signs.",
+      details: [
+        "Dataset: ~745k train / ~320k test, 74 features.",
+        "Best NN accuracy ≈ 0.5238 (LightGBM ≈ 0.5208)."
+      ],
+      tech: ["Python", "NN", "LightGBM", "Pandas"],
+      links: { repo: "" },
+      images: [
+        { src: "/images/stocks/1.png", alt: "Preprocessing", caption: "Handling missing values (interpolation)" },
+        { src: "/images/stocks/2.png", alt: "Accuracy table", caption: "Model comparison" }
+      ]
+    }
+  ],
+  contact: {
+    email: "namratanyams98@gmail.com",
+    github: "https://github.com/NamrataNyam",
+    linkedin: "https://www.linkedin.com/in/namrata-nyamagoudar-07a694176"
+  }
+};
+
+## Components
+- <Header/> sticky; theme toggle; reduced blur backdrop.
+- <Hero/> with two-line tagline; CTA buttons.
+- <Tag/> pill for skills.
+- <Section/> wrapper with id anchors.
+- <Carousel/> generic Embla-based; props: slides[], autoPlay? navButtons? keyboard?  
+- <ProjectsCarousel/> uses <Carousel/> with `portfolio.projects.filter(p=>p.featured)`.
+- <ProjectCard/> shows one-liner, tags; onClick → <ProjectModal/> containing inner <Carousel/> of `images`.
+- <ResearchItem/>, <ExperienceItem/>, <ContactForm/>.
+
+## Assets
+- Create folders:
+  - `/public/images/spookfish`, `/public/images/humma`, `/public/images/inpaint`, `/public/images/kv`, `/public/images/stocks`, `/public/images/research`.
+  - Use placeholders if actual images aren’t available yet.
+- Put resume at `/public/resume/Namrata_Nyamagoudar_Resume.pdf`.
+
+## Nice-to-haves
+- Animate section headers as they enter viewport.
+- Hash-based deep links open the right section and scroll with offset.
+- Minimal 404 route that redirects to home.
+
+Deliver a clean, production-ready repo with clear file structure and inline docs for how to add new projects/images later.

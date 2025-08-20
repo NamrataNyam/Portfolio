@@ -1,0 +1,83 @@
+Build a one-page portfolio website for **Namrata Nyamagoudar** with a **dark theme**.
+
+## Stack
+- React + Vite + TypeScript
+- Tailwind CSS
+- Framer Motion for soft fades/slide-ins
+- Embla (or lightweight vanilla) for two carousel levels:
+  1) Top-level **Projects Slideshow**
+  2) Per-project **Results Slideshow** inside each project modal/card
+
+## Global UI
+- Dark theme by default + theme toggle (persist; respect prefers-color-scheme)
+- Near-black bg, soft-gray surfaces, high-contrast headings, rounded-2xl, subtle shadows
+- Keyboard nav & focus states, alt text on images, responsive 360–1440+ px
+
+## Sections (in this order)
+1) **Header**: “NN” left; links right → About • Experience • Research • Projects • Contact • Resume
+2) **Hero**
+   - Name: **Namrata Nyamagoudar**
+   - One-liner: **AI/ML engineer turning complex ideas into reliable, measurable systems—RAG/agents, computer vision, and Snowflake-native data platforms.**
+   - CTAs: View Projects → #projects, Get in Touch → #contact, Download Résumé → `/resume/Namrata_Nyamagoudar_Resume.pdf`
+
+3) **About** (short, overall; no company names)
+   - “I work across AI/ML, computer vision, and data platforms—designing retrieval/agentic systems end-to-end, from models and retrieval to Snowflake-centric backends and APIs. I value simple interfaces, measurable quality, and maintainable code.”
+
+4) **Professional Experience** (timeline cards)
+   - **Founding Engineer — Hivekind.ai** · San Francisco, USA · **Jun 2025–Present**
+     - Multi-tenant Snowflake (OpenFlow, RBAC, automated onboarding) → **~80% faster customer setup**. :contentReference[oaicite:0]{index=0}
+     - Snowpark ETL → fact/dimension star schema; lead scoring with feature engineering + AutoML. :contentReference[oaicite:1]{index=1}
+     - LangChain + LangGraph (MCP) for multi-agent workflows; structured + vector queries. :contentReference[oaicite:2]{index=2}
+     - RAG with Cortex + Bedrock; personalized emails with RLHF → **~70% SDR effort reduction**. :contentReference[oaicite:3]{index=3}
+     - Dockerized TS/React + FastAPI; ECR → ECS Fargate/EC2/Lambda; CI/CD (Dev/Test/Main). :contentReference[oaicite:4]{index=4}
+
+   - **Cloud Consultant — Deloitte Consulting** · Bengaluru, India · **Sep 2021–Jul 2023**
+     - Azure DevOps CI/CD (PowerShell/YAML) for COTS decision engine flow. :contentReference[oaicite:5]{index=5}
+     - ASP.NET/C# ETL parsing hierarchical XML; App Service + Azure SQL migration. :contentReference[oaicite:6]{index=6}
+     - Backup efficiency **+70%** (MS SQL + Az-Disk Snapshots), enforced RBAC. :contentReference[oaicite:7]{index=7}
+     - 20+ microservices (Angular/JS); MTTR **−35%** via telemetry/Application Insights. :contentReference[oaicite:8]{index=8}
+
+   - **Computer Vision (Industry Project/Intern) — Spookfish Innovations**
+     - YOLOv4 + DeepSORT pipeline to track tablets/capsules on packaging trays; Kalman + Hungarian. :contentReference[oaicite:9]{index=9} :contentReference[oaicite:10]{index=10}
+     - Target near real-time; observed **~9–20 FPS** in tests; ~95% detection with YOLOv4 (note context). :contentReference[oaicite:11]{index=11}
+
+5) **Research**
+   - **UC Irvine — ML Research Assistant (Audio)** · Jun 2024–Jun 2025  
+     Estimated auditory filter bandwidths (MATLAB); fine-tuned **Audio Spectrogram Transformer (AST)** in PyTorch for time-frequency classification. :contentReference[oaicite:12]{index=12}
+   - **Vision-based Evaluation of Micro-suturing**  
+     Automated scoring with classical CV (HOG-SVM, Haar, Hough/contours); parameters like inter-suture distance, size, angulation, symmetry. :contentReference[oaicite:13]{index=13}
+
+6) **Projects** (top-level slideshow + per-project results slideshows in modals)
+   - **Humma.AI — LLM Fine-tuning for Conversation Quality**  
+     PEFT-tuned **LLaMA 3.1 (8B)**; **EQ60 = 53 vs 45**; Dockerized React on EC2; eval with VADER/emotion analysis. Results slideshow: comparisons/plots. :contentReference[oaicite:14]{index=14}
+   - **Heritage Image Inpainting**  
+     Mask R-CNN occlusion removal; contextual-attention GAN inpainting. Results slideshow: masked→inpainted. (Use report metrics if available.)
+   - **Mini DynamoDB — Distributed KV Store (C++/gRPC/ZooKeeper)**  
+     Consistent hashing, LSM-trees, gossip; leader election with ZooKeeper. :contentReference[oaicite:15]{index=15}
+   - **US Stock Movement Prediction**  
+     NN vs LightGBM; show preprocessing and accuracy table in results slides. (Pull numbers from report tables.) :contentReference[oaicite:16]{index=16}
+
+7) **Contact**
+   - Buttons: Email (mailto:namratanyams98@gmail.com), GitHub, LinkedIn
+
+8) **Footer**
+   - Minimal, © Namrata Nyamagoudar, theme toggle duplicated.
+
+## Data-Driven Content
+Create `/src/data/portfolio.ts` with this shape and fill with the content above:
+export type Experience = { company:string; role:string; location?:string; start:string; end:string; bullets:string[]; tech?:string[]; images?:{src:string;alt:string;caption?:string}[]; };
+export type Research = { title:string; summary:string; dates?:string; images?:{src:string;alt:string;caption?:string}[]; };
+export type Project = { title:string; oneLiner:string; details:string[]; tech:string[]; featured?:boolean; images:{src:string;alt:string;caption?:string}[]; };
+export const portfolio = { hero:{...}, about:"...", experience:Experience[], research:Research[], projects:Project[], contact:{ email, github, linkedin } };
+
+## Components
+- <Header/>, <Hero/>, <Section/>, <Tag/>, <ExperienceItem/>, <ResearchItem/>, <ProjectCard/>, <ProjectModal/> (inner slideshow), <Carousel/>, <Contact/>, <Footer/>
+
+## Assets
+- `/public/resume/Namrata_Nyamagoudar_Resume.pdf`
+- Image folders: `/public/images/spookfish`, `/images/humma`, `/images/inpaint`, `/images/kv`, `/images/stocks`, `/images/research` (placeholders ok)
+
+## Nice-to-haves
+- Hash links open sections with offset scroll
+- Reduced-motion support
+- Lighthouse ≥95 across perf/SEO/a11y
