@@ -4,6 +4,7 @@ import { About } from "@/components/About";
 import { Experience } from "@/components/Experience";
 import { Research } from "@/components/Research";
 import { Projects } from "@/components/Projects";
+import { Certifications } from "@/components/Certifications";
 import { Contact } from "@/components/Contact";
 import { Mail, Github, Linkedin } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
@@ -21,6 +22,7 @@ export default function Portfolio() {
         <Experience />
         <Research />
         <Projects />
+        <Certifications />
         <Contact />
       </main>
       

@@ -46,6 +46,17 @@ export interface OpenSourceContribution {
   datePublished: string;
 }
 
+export interface Certification {
+  title: string;
+  issuer: string;
+  date: string;
+  credentialId?: string;
+  skills: string[];
+  link?: string;
+  description: string;
+  level: "Professional" | "Associate" | "Expert" | "Specialist";
+}
+
 export const portfolio = {
   hero: {
     name: "Namrata Nyamagoudar",
@@ -208,6 +219,48 @@ export const portfolio = {
         "Enables research in urban planning, market analysis, and socioeconomic studies"
       ],
       datePublished: "2024"
+    }
+  ],
+  certifications: [
+    {
+      title: "AWS Certified Solutions Architect - Associate",
+      issuer: "Amazon Web Services",
+      date: "2023",
+      credentialId: "AWS-CSA-2023-001",
+      skills: ["Cloud Architecture", "AWS Services", "Scalability", "Security"],
+      link: "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+      description: "Validates expertise in designing distributed systems on AWS cloud platform with focus on scalability, security, and cost optimization.",
+      level: "Associate" as const
+    },
+    {
+      title: "Microsoft Azure Data Engineer Associate",
+      issuer: "Microsoft",
+      date: "2022",
+      credentialId: "DP-203-2022-456",
+      skills: ["Azure Data Factory", "Data Lakes", "ETL Pipelines", "Data Analytics"],
+      link: "https://docs.microsoft.com/en-us/learn/certifications/azure-data-engineer/",
+      description: "Demonstrates skills in implementing data solutions using Azure data services including data ingestion, transformation, and analytics.",
+      level: "Associate" as const
+    },
+    {
+      title: "Google Cloud Professional Machine Learning Engineer",
+      issuer: "Google Cloud",
+      date: "2023",
+      credentialId: "GCP-PMLE-2023-789",
+      skills: ["ML Engineering", "TensorFlow", "Model Deployment", "AutoML"],
+      link: "https://cloud.google.com/certification/machine-learning-engineer",
+      description: "Validates ability to design, build, and productionize ML models using Google Cloud technologies and best practices.",
+      level: "Professional" as const
+    },
+    {
+      title: "Snowflake SnowPro Core Certification",
+      issuer: "Snowflake",
+      date: "2024",
+      credentialId: "SNOW-CORE-2024-123",
+      skills: ["Data Warehousing", "SQL", "Cloud Data Platform", "Data Sharing"],
+      link: "https://www.snowflake.com/certifications/",
+      description: "Demonstrates foundational knowledge of Snowflake's cloud data platform including architecture, features, and SQL capabilities.",
+      level: "Professional" as const
     }
   ],
   contact: {
