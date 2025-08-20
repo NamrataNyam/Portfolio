@@ -65,14 +65,17 @@ export function Projects() {
                       transition={{ duration: 0.6, delay: 0.1 * index }}
                       viewport={{ once: true }}
                     >
-                      <Card className="border-border">
+                      <Card className="border-border hover:shadow-xl hover:scale-[1.01] transition-all duration-500 group cursor-default">
                         <CardContent className="p-8">
                           <div className="grid lg:grid-cols-2 gap-8 items-center">
                             <div>
                               <div className="flex items-center gap-3 mb-4">
-                                <div className="bg-sage/10 w-12 h-12 rounded-lg flex items-center justify-center">
-                                  <BarChart3 className="text-sage h-6 w-6" />
-                                </div>
+                                <motion.div 
+                                  className="bg-sage/10 w-12 h-12 rounded-lg flex items-center justify-center group-hover:bg-sage group-hover:scale-110 transition-all duration-300"
+                                  whileHover={{ rotate: 10 }}
+                                >
+                                  <BarChart3 className="text-sage group-hover:text-white h-6 w-6 transition-colors duration-300" />
+                                </motion.div>
                                 <div>
                                   <h3 className="text-2xl font-semibold text-charcoal dark:text-white">
                                     {project.title.split("—")[0].trim()}
@@ -88,20 +91,37 @@ export function Projects() {
                               </p>
 
                               <div className="flex flex-wrap gap-2 mb-6">
-                                {project.tech.slice(0, 4).map((tech) => (
-                                  <Badge key={tech} variant="secondary" className="bg-sage/10 text-sage font-mono text-xs">
-                                    {tech}
-                                  </Badge>
+                                {project.tech.slice(0, 4).map((tech, techIndex) => (
+                                  <motion.div
+                                    key={tech}
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.3, delay: 0.1 * techIndex }}
+                                    viewport={{ once: true }}
+                                    whileHover={{ scale: 1.1, y: -2 }}
+                                  >
+                                    <Badge variant="secondary" className="bg-sage/10 text-sage font-mono text-xs hover:bg-sage hover:text-white transition-all duration-200 cursor-default">
+                                      {tech}
+                                    </Badge>
+                                  </motion.div>
                                 ))}
                               </div>
 
-                              <Button
-                                onClick={() => setSelectedProject(project)}
-                                className="bg-sage hover:bg-sage-dark text-white"
-                              >
-                                <BarChart3 className="mr-2 h-4 w-4" />
-                                View Results
-                              </Button>
+                              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                                <Button
+                                  onClick={() => setSelectedProject(project)}
+                                  className="bg-sage hover:bg-sage-dark text-white group/btn"
+                                >
+                                  <motion.div
+                                    className="mr-2"
+                                    whileHover={{ rotate: 360 }}
+                                    transition={{ duration: 0.6 }}
+                                  >
+                                    <BarChart3 className="h-4 w-4" />
+                                  </motion.div>
+                                  View Results
+                                </Button>
+                              </motion.div>
                             </div>
 
                             <div className="relative">
@@ -122,25 +142,45 @@ export function Projects() {
             </div>
 
             {/* Carousel Controls */}
-            <Button
-              variant="outline"
-              size="icon"
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border"
-              onClick={scrollPrev}
-              disabled={!canScrollPrev}
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/90 hover:bg-sage hover:text-white hover:border-sage border-border shadow-lg transition-all duration-300"
+                onClick={scrollPrev}
+                disabled={!canScrollPrev}
+              >
+                <motion.div
+                  whileHover={{ x: -2 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </motion.div>
+              </Button>
+            </motion.div>
 
-            <Button
-              variant="outline"
-              size="icon"
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background border-border"
-              onClick={scrollNext}
-              disabled={!canScrollNext}
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/90 hover:bg-sage hover:text-white hover:border-sage border-border shadow-lg transition-all duration-300"
+                onClick={scrollNext}
+                disabled={!canScrollNext}
+              >
+                <motion.div
+                  whileHover={{ x: 2 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </motion.div>
+              </Button>
+            </motion.div>
           </div>
 
           {/* All Projects Grid */}

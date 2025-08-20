@@ -70,15 +70,25 @@ export function About() {
                 <h4 className="text-lg font-semibold text-charcoal dark:text-white">Core Expertise</h4>
                 <div className="grid grid-cols-1 gap-3">
                   {skills.map((skill, index) => (
-                    <div key={skill.title} className="flex items-center gap-3">
-                      <div className="bg-sage/10 w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <skill.icon className="text-sage h-4 w-4" />
-                      </div>
+                    <motion.div
+                      key={skill.title}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: 0.1 * index }}
+                      viewport={{ once: true }}
+                      className="flex items-center gap-3 group cursor-default hover:translate-x-2 transition-transform duration-300"
+                    >
+                      <motion.div 
+                        className="bg-sage/10 w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-sage group-hover:scale-110 transition-all duration-300"
+                        whileHover={{ rotate: 5 }}
+                      >
+                        <skill.icon className="text-sage group-hover:text-white h-4 w-4 transition-colors duration-300" />
+                      </motion.div>
                       <div>
-                        <span className="font-medium text-charcoal dark:text-white">{skill.title}</span>
+                        <span className="font-medium text-charcoal dark:text-white group-hover:text-sage transition-colors duration-300">{skill.title}</span>
                         <p className="text-muted-foreground text-sm">{skill.description}</p>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>

@@ -97,19 +97,26 @@ export function Contact() {
                 {contactLinks.map((link) => (
                   <motion.div
                     key={link.title}
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.1 * contactLinks.indexOf(link) }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.02, x: 8 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     <a
                       href={link.href}
                       target={link.href.startsWith('http') ? '_blank' : undefined}
                       className="flex items-center gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors duration-200 group"
                     >
-                      <div className="bg-sage/10 w-12 h-12 rounded-lg flex items-center justify-center group-hover:bg-sage group-hover:text-white transition-all duration-200">
-                        <link.icon className={`h-5 w-5 text-sage group-hover:text-white`} />
-                      </div>
+                      <motion.div 
+                        className="bg-sage/10 w-12 h-12 rounded-lg flex items-center justify-center group-hover:bg-sage group-hover:text-white transition-all duration-200 group-hover:scale-110"
+                        whileHover={{ rotate: 5 }}
+                      >
+                        <link.icon className={`h-5 w-5 text-sage group-hover:text-white transition-colors duration-200`} />
+                      </motion.div>
                       <div>
-                        <h4 className="font-semibold text-charcoal dark:text-white">{link.title}</h4>
+                        <h4 className="font-semibold text-charcoal dark:text-white group-hover:text-sage transition-colors duration-200">{link.title}</h4>
                         <p className="text-muted-foreground text-sm">{link.description}</p>
                       </div>
                     </a>

@@ -32,8 +32,11 @@ export function Experience() {
                 viewport={{ once: true }}
                 className="relative mb-12 ml-12 md:ml-0"
               >
-                <Card className={`relative shadow-sm border-border ${index % 2 === 0 ? 'md:ml-8' : 'md:mr-8'}`}>
-                  <div className="absolute -left-4 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-sage rounded-full border-4 border-background"></div>
+                <Card className={`relative shadow-sm border-border hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-default group ${index % 2 === 0 ? 'md:ml-8' : 'md:mr-8'}`}>
+                  <motion.div 
+                    className="absolute -left-4 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-sage rounded-full border-4 border-background group-hover:scale-125 group-hover:bg-sage-dark transition-all duration-300"
+                    whileHover={{ scale: 1.3, boxShadow: "0 0 20px rgba(45, 212, 191, 0.4)" }}
+                  ></motion.div>
                   
                   <CardContent className="p-8">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -54,19 +57,38 @@ export function Experience() {
 
                     <ul className="space-y-3 text-muted-foreground mb-6">
                       {exp.bullets.map((bullet, bulletIndex) => (
-                        <li key={bulletIndex} className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 bg-sage rounded-full mt-2 flex-shrink-0"></div>
+                        <motion.li 
+                          key={bulletIndex} 
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.4, delay: 0.1 * bulletIndex }}
+                          viewport={{ once: true }}
+                          className="flex items-start gap-3 group hover:translate-x-1 transition-transform duration-200"
+                        >
+                          <motion.div 
+                            className="w-1.5 h-1.5 bg-sage rounded-full mt-2 flex-shrink-0 group-hover:scale-150 group-hover:bg-sage-dark transition-all duration-200"
+                            whileHover={{ scale: 2 }}
+                          ></motion.div>
                           <span dangerouslySetInnerHTML={{ __html: bullet.replace(/~(\d+%)/g, '<strong class="text-sage">$1</strong>').replace(/\*\*(.*?)\*\*/g, '<strong class="text-sage">$1</strong>') }} />
-                        </li>
+                        </motion.li>
                       ))}
                     </ul>
 
                     {exp.tech && (
                       <div className="flex flex-wrap gap-2">
-                        {exp.tech.map((tech) => (
-                          <Badge key={tech} variant="secondary" className="bg-sage/10 text-sage font-mono text-xs">
-                            {tech}
-                          </Badge>
+                        {exp.tech.map((tech, techIndex) => (
+                          <motion.div
+                            key={tech}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.3, delay: 0.1 * techIndex }}
+                            viewport={{ once: true }}
+                            whileHover={{ scale: 1.1, y: -2 }}
+                          >
+                            <Badge variant="secondary" className="bg-sage/10 text-sage font-mono text-xs hover:bg-sage hover:text-white transition-all duration-200 cursor-default">
+                              {tech}
+                            </Badge>
+                          </motion.div>
                         ))}
                       </div>
                     )}

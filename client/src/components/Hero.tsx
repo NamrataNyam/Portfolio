@@ -34,8 +34,22 @@ export function Hero() {
             </motion.div>
 
             <h1 className="text-5xl lg:text-7xl font-bold text-charcoal dark:text-white mb-6 tracking-tight">
-              Namrata{" "}
-              <span className="text-sage">Nyamagoudar</span>
+              <motion.span
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="inline-block"
+              >
+                Namrata{" "}
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="text-sage inline-block hover:scale-105 transition-transform duration-300 cursor-default"
+              >
+                Nyamagoudar
+              </motion.span>
             </h1>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               {portfolio.hero.tagline}
