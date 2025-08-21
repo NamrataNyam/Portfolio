@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, Send, BookOpen } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { portfolio } from "@/data/portfolio";
+import emailjs from '@emailjs/browser';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -18,14 +19,85 @@ export function Contact() {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Initialize EmailJS
+  useEffect(() => {
+    try {
+      emailjs.init('_KEYRmKrwMlNWR86d');
+      console.log('EmailJS initialized successfully');
+    } catch (error) {
+      console.error('EmailJS initialization failed:', error);
+    }
+  }, []);
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon!",
-    });
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+
+    // Check if EmailJS is loaded
+    if (typeof emailjs === 'undefined') {
+      throw new Error('EmailJS not loaded. Please refresh the page.');
+    }
+
+    try {
+      // EmailJS configuration - using standard template variables
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        title: formData.subject,
+        message: formData.message,
+        time: new Date().toLocaleString()
+      };
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        'service_fuwh1zh', // Your real service ID
+        'template_w0rzq6x', // Your real template ID
+        templateParams,
+        '_KEYRmKrwMlNWR86d' // Your real public key
+      );
+
+      if (result.status === 200) {
+        toast({
+          title: "Message Sent Successfully!",
+          description: "Thank you for your message. I'll get back to you soon!",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      console.error('Error details:', {
+        serviceId: 'service_fuwh1zh',
+        templateId: 'template_w0rzq6x',
+        publicKey: '_KEYRmKrwMlNWR86d',
+        error: error,
+        errorMessage: error instanceof Error ? error.message : 'Unknown error',
+        errorStack: error instanceof Error ? error.stack : 'No stack trace'
+      });
+      
+      // Show more specific error message
+      let errorDescription = "There was an error sending your message. Please try again or contact me directly.";
+      if (error instanceof Error) {
+        if (error.message.includes('service')) {
+          errorDescription = "Email service not connected. Please check EmailJS configuration.";
+        } else if (error.message.includes('template')) {
+          errorDescription = "Email template not found. Please check EmailJS configuration.";
+        } else if (error.message.includes('key')) {
+          errorDescription = "Invalid API key. Please check EmailJS configuration.";
+        }
+      }
+      
+      toast({
+        title: "Failed to Send Message",
+        description: errorDescription,
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -198,10 +270,20 @@ export function Contact() {
 
                     <Button
                       type="submit"
-                      className="w-full bg-sage hover:bg-sage-dark text-white"
+                      disabled={isSubmitting}
+                      className="w-full bg-sage hover:bg-sage-dark text-white disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <Send className="mr-2 h-4 w-4" />
-                      Send Message
+                      {isSubmitting ? (
+                        <>
+                          <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="mr-2 h-4 w-4" />
+                          Send Message
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>
