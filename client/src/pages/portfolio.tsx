@@ -6,6 +6,7 @@ import { Research } from "@/components/Research";
 import { Projects } from "@/components/Projects";
 import { Certifications } from "@/components/Certifications";
 import { Contact } from "@/components/Contact";
+
 import { Mail, Github, Linkedin } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 import { portfolio } from "@/data/portfolio";

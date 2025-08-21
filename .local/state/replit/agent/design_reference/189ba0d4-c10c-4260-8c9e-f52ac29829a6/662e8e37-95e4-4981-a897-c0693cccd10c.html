@@ -1,0 +1,970 @@
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namrata Nyamagoudar - AI/ML Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'deep-space': '#0a0e27',
+                    'space-blue': '#1a1f3a',
+                    'electric-green': '#00ff88',
+                    'tech-green': '#4ade80',
+                    'neural-blue': '#3b82f6',
+                    'cyber-purple': '#8b5cf6',
+                    'code-gray': '#64748b',
+                    'tech-gray': '#94a3b8'
+                },
+                fontFamily: {
+                    'mono': ['JetBrains Mono', 'monospace'],
+                    'sans': ['Inter', 'sans-serif']
+                },
+                animation: {
+                    'float': 'float 3s ease-in-out infinite',
+                    'glow': 'glow 2s ease-in-out infinite alternate',
+                    'neural': 'neural 4s ease-in-out infinite',
+                    'slide-in': 'slideIn 0.5s ease-out',
+                    'fade-in': 'fadeIn 0.6s ease-out'
+                },
+                backgroundImage: {
+                    'neural-pattern': 'radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.15) 1px, transparent 0)',
+                    'grid-pattern': 'linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)'
+                }
+            }
+        }
+    };
+    </script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(0, 255, 136, 0.3); }
+            to { box-shadow: 0 0 30px rgba(0, 255, 136, 0.6); }
+        }
+        @keyframes neural {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .neural-bg {
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 255, 136, 0.05) 0%, transparent 50%);
+        }
+        .tech-grid {
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .code-highlight {
+            background: linear-gradient(90deg, rgba(0, 255, 136, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-deep-space text-white overflow-x-hidden">
+    <!-- Neural Network Background Animation -->
+    <div class="fixed inset-0 neural-bg tech-grid pointer-events-none z-0"></div>
+    
+    <!-- Floating Tech Elements -->
+    <div class="fixed top-20 left-10 w-2 h-2 bg-electric-green rounded-full animate-float opacity-60"></div>
+    <div class="fixed top-40 right-20 w-1 h-1 bg-neural-blue rounded-full animate-float opacity-40" style="animation-delay: 1s;"></div>
+    <div class="fixed bottom-40 left-20 w-1.5 h-1.5 bg-cyber-purple rounded-full animate-float opacity-50" style="animation-delay: 2s;"></div>
+    <div class="fixed bottom-20 right-10 w-2 h-2 bg-tech-green rounded-full animate-float opacity-30" style="animation-delay: 0.5s;"></div>
+
+    <!-- @COMPONENT: Header -->
+    <header class="fixed top-0 w-full bg-deep-space/80 backdrop-blur-lg border-b border-space-blue/50 z-50">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="font-mono text-2xl font-bold text-electric-green">
+                <span class="bg-electric-green text-deep-space px-2 py-1 rounded">NN</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-electric-green transition-colors duration-300">About</a>
+                <a href="#experience" class="hover:text-electric-green transition-colors duration-300">Experience</a>
+                <a href="#research" class="hover:text-electric-green transition-colors duration-300">Research</a>
+                <a href="#projects" class="hover:text-electric-green transition-colors duration-300">Projects</a>
+                <a href="#contact" class="hover:text-electric-green transition-colors duration-300">Contact</a>
+                <a href="/resume/Namrata_Nyamagoudar_Resume.pdf" class="text-neural-blue hover:text-electric-green transition-colors duration-300">Resume</a>
+            </div>
+            <button class="md:hidden text-white" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <main class="relative z-10">
+        <!-- @COMPONENT: Hero -->
+        <section id="hero" class="min-h-screen flex items-center justify-center pt-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="animate-fade-in">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-electric-green via-neural-blue to-cyber-purple bg-clip-text text-transparent">
+                        Namrata Nyamagoudar
+                    </h1>
+                    <p class="text-xl md:text-2xl text-tech-gray mb-8 max-w-4xl mx-auto leading-relaxed">
+                        <span class="font-mono text-electric-green">AI/ML engineer</span> turning complex ideas into reliable, measurable systems—
+                        <span class="text-neural-blue">RAG/agents</span>, 
+                        <span class="text-cyber-purple">computer vision</span>, and 
+                        <span class="text-tech-green">Snowflake-native data platforms</span>.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="#projects" class="bg-electric-green text-deep-space px-8 py-3 rounded-lg font-semibold hover:bg-tech-green transition-all duration-300 transform hover:scale-105 animate-glow">
+                            View Projects
+                        </a>
+                        <a href="#contact" class="border border-neural-blue text-neural-blue px-8 py-3 rounded-lg font-semibold hover:bg-neural-blue hover:text-white transition-all duration-300">
+                            Get in Touch
+                        </a>
+                        <a href="/resume/Namrata_Nyamagoudar_Resume.pdf" class="text-tech-gray hover:text-white transition-colors duration-300 flex items-center gap-2">
+                            <i class="fas fa-download"></i>
+                            Download Résumé
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: Hero -->
+
+        <!-- @COMPONENT: About -->
+        <section id="about" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12 text-electric-green font-mono">About.me</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-space-blue/30 backdrop-blur-sm border border-neural-blue/20 rounded-2xl p-8 code-highlight">
+                        <p class="text-lg leading-relaxed text-center">
+                            I work across <span class="text-electric-green font-mono">AI/ML</span>, 
+                            <span class="text-neural-blue font-mono">computer vision</span>, and 
+                            <span class="text-cyber-purple font-mono">data platforms</span>—designing 
+                            retrieval/agentic systems end-to-end, from models and retrieval to 
+                            Snowflake-centric backends and APIs. I value 
+                            <span class="text-tech-green">simple interfaces</span>, 
+                            <span class="text-neural-blue">measurable quality</span>, and 
+                            <span class="text-electric-green">maintainable code</span>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: About -->
+
+        <!-- @COMPONENT: Experience -->
+        <section id="experience" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16 text-electric-green font-mono">Professional.experience</h2>
+                <div class="max-w-6xl mx-auto space-y-12">
+                    
+                    <!-- Hivekind.ai -->
+                    <div class="bg-space-blue/20 backdrop-blur-sm border border-electric-green/20 rounded-2xl p-8 transform hover:scale-[1.02] transition-all duration-300">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-electric-green">Founding Engineer</h3>
+                                <p class="text-xl text-neural-blue font-mono">Hivekind.ai</p>
+                                <p class="text-tech-gray">San Francisco, USA</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-mono text-cyber-purple">Jun 2025–Present</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-tech-gray">
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-database text-electric-green mt-1"></i>
+                                Multi-tenant Snowflake (OpenFlow, RBAC, automated onboarding) → <span class="text-electric-green font-mono">~80% faster customer setup</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-cogs text-neural-blue mt-1"></i>
+                                Snowpark ETL → fact/dimension star schema; lead scoring with feature engineering + AutoML
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-brain text-cyber-purple mt-1"></i>
+                                LangChain + LangGraph (MCP) for multi-agent workflows; structured + vector queries
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-robot text-tech-green mt-1"></i>
+                                RAG with Cortex + Bedrock; personalized emails with RLHF → <span class="text-electric-green font-mono">~70% SDR effort reduction</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-cloud text-neural-blue mt-1"></i>
+                                Dockerized TS/React + FastAPI; ECR → ECS Fargate/EC2/Lambda; CI/CD (Dev/Test/Main)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Deloitte -->
+                    <div class="bg-space-blue/20 backdrop-blur-sm border border-neural-blue/20 rounded-2xl p-8 transform hover:scale-[1.02] transition-all duration-300">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-neural-blue">Cloud Consultant</h3>
+                                <p class="text-xl text-cyber-purple font-mono">Deloitte Consulting</p>
+                                <p class="text-tech-gray">Bengaluru, India</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-mono text-cyber-purple">Sep 2021–Jul 2023</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-tech-gray">
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-tools text-neural-blue mt-1"></i>
+                                Azure DevOps CI/CD (PowerShell/YAML) for COTS decision engine flow
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-code text-cyber-purple mt-1"></i>
+                                ASP.NET/C# ETL parsing hierarchical XML; App Service + Azure SQL migration
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-shield-alt text-electric-green mt-1"></i>
+                                Backup efficiency <span class="text-electric-green font-mono">+70%</span> (MS SQL + Az-Disk Snapshots), enforced RBAC
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-chart-line text-tech-green mt-1"></i>
+                                20+ microservices (Angular/JS); MTTR <span class="text-electric-green font-mono">−35%</span> via telemetry/Application Insights
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Spookfish -->
+                    <div class="bg-space-blue/20 backdrop-blur-sm border border-tech-green/20 rounded-2xl p-8 transform hover:scale-[1.02] transition-all duration-300">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-tech-green">Computer Vision Intern</h3>
+                                <p class="text-xl text-electric-green font-mono">Spookfish Innovations</p>
+                                <p class="text-tech-gray">Industry Project</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-mono text-cyber-purple">2020–2021</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-tech-gray">
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-eye text-tech-green mt-1"></i>
+                                YOLOv4 + DeepSORT pipeline to track tablets/capsules on packaging trays; Kalman + Hungarian
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-tachometer-alt text-electric-green mt-1"></i>
+                                Target near real-time; observed <span class="text-electric-green font-mono">~9–20 FPS</span> in tests; <span class="text-electric-green font-mono">~95% detection</span> with YOLOv4
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: Experience -->
+
+        <!-- @COMPONENT: Research -->
+        <section id="research" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16 text-electric-green font-mono">Research.portfolio</h2>
+                <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+                    
+                    <!-- UC Irvine Research -->
+                    <div class="bg-space-blue/20 backdrop-blur-sm border border-cyber-purple/20 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-cyber-purple mb-4">UC Irvine — ML Research Assistant (Audio)</h3>
+                        <p class="text-tech-gray mb-4 font-mono">Jun 2024–Jun 2025</p>
+                        <p class="text-tech-gray leading-relaxed">
+                            Estimated auditory filter bandwidths (MATLAB); fine-tuned 
+                            <span class="text-electric-green font-mono">Audio Spectrogram Transformer (AST)</span> 
+                            in PyTorch for time-frequency classification.
+                        </p>
+                    </div>
+
+                    <!-- Vision Research -->
+                    <div class="bg-space-blue/20 backdrop-blur-sm border border-neural-blue/20 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-neural-blue mb-4">Vision-based Evaluation of Micro-suturing</h3>
+                        <p class="text-tech-gray mb-4 font-mono">Collaborative Research</p>
+                        <p class="text-tech-gray leading-relaxed">
+                            Automated scoring with classical CV (HOG-SVM, Haar, Hough/contours); parameters like 
+                            <span class="text-electric-green">inter-suture distance</span>, 
+                            <span class="text-neural-blue">size</span>, 
+                            <span class="text-cyber-purple">angulation</span>, and 
+                            <span class="text-tech-green">symmetry</span>.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: Research -->
+
+        <!-- @COMPONENT: Projects -->
+        <section id="projects" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16 text-electric-green font-mono">Featured.projects</h2>
+                
+                <!-- Main Projects Carousel -->
+                <div class="max-w-6xl mx-auto">
+                    <div class="relative">
+                        <div class="overflow-hidden rounded-2xl">
+                            <div class="flex transition-transform duration-500 ease-in-out" id="projects-carousel">
+                                
+                                <!-- Humma.AI Project -->
+                                <div class="w-full flex-shrink-0 px-4">
+                                    <div class="bg-space-blue/30 backdrop-blur-sm border border-electric-green/20 rounded-2xl p-8 cursor-pointer transform hover:scale-[1.02] transition-all duration-300" onclick="openProjectModal('humma')">
+                                        <div class="flex flex-col lg:flex-row gap-8">
+                                            <div class="lg:w-2/3">
+                                                <h3 class="text-3xl font-bold text-electric-green mb-4">Humma.AI — LLM Fine-tuning for Conversation Quality</h3>
+                                                <p class="text-tech-gray mb-6 leading-relaxed">
+                                                    PEFT-tuned <span class="text-electric-green font-mono">LLaMA 3.1 (8B)</span>; 
+                                                    <span class="text-electric-green font-mono">EQ60 = 53 vs 45 baseline</span>; 
+                                                    Dockerized React on EC2; eval with VADER/emotion analysis.
+                                                </p>
+                                                <div class="flex flex-wrap gap-2 mb-4">
+                                                    <span class="bg-neural-blue/20 text-neural-blue px-3 py-1 rounded-full text-sm font-mono">Python</span>
+                                                    <span class="bg-cyber-purple/20 text-cyber-purple px-3 py-1 rounded-full text-sm font-mono">HuggingFace</span>
+                                                    <span class="bg-tech-green/20 text-tech-green px-3 py-1 rounded-full text-sm font-mono">AWS Bedrock</span>
+                                                    <span class="bg-electric-green/20 text-electric-green px-3 py-1 rounded-full text-sm font-mono">PEFT (LoRA)</span>
+                                                </div>
+                                                <button class="text-electric-green hover:text-tech-green transition-colors duration-300 flex items-center gap-2">
+                                                    <span>View Results</span>
+                                                    <i class="fas fa-arrow-right"></i>
+                                                </button>
+                                            </div>
+                                            <div class="lg:w-1/3 flex items-center justify-center">
+                                                <!-- AI/ML visualization placeholder -->
+                                                <div class="w-48 h-48 bg-gradient-to-br from-electric-green/20 to-neural-blue/20 rounded-2xl flex items-center justify-center">
+                                                    <i class="fas fa-brain text-6xl text-electric-green opacity-60"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Heritage Inpainting Project -->
+                                <div class="w-full flex-shrink-0 px-4">
+                                    <div class="bg-space-blue/30 backdrop-blur-sm border border-neural-blue/20 rounded-2xl p-8 cursor-pointer transform hover:scale-[1.02] transition-all duration-300" onclick="openProjectModal('inpainting')">
+                                        <div class="flex flex-col lg:flex-row gap-8">
+                                            <div class="lg:w-2/3">
+                                                <h3 class="text-3xl font-bold text-neural-blue mb-4">Heritage Image Inpainting</h3>
+                                                <p class="text-tech-gray mb-6 leading-relaxed">
+                                                    Mask R-CNN occlusion removal; contextual-attention GAN inpainting. 
+                                                    Advanced computer vision pipeline for heritage site 3D reconstruction with 
+                                                    <span class="text-neural-blue font-mono">WGAN-GP</span> and 
+                                                    <span class="text-cyber-purple font-mono">DC-GAN</span> architectures.
+                                                </p>
+                                                <div class="flex flex-wrap gap-2 mb-4">
+                                                    <span class="bg-neural-blue/20 text-neural-blue px-3 py-1 rounded-full text-sm font-mono">Mask R-CNN</span>
+                                                    <span class="bg-cyber-purple/20 text-cyber-purple px-3 py-1 rounded-full text-sm font-mono">GAN</span>
+                                                    <span class="bg-tech-green/20 text-tech-green px-3 py-1 rounded-full text-sm font-mono">Computer Vision</span>
+                                                    <span class="bg-electric-green/20 text-electric-green px-3 py-1 rounded-full text-sm font-mono">PyTorch</span>
+                                                </div>
+                                                <button class="text-neural-blue hover:text-tech-green transition-colors duration-300 flex items-center gap-2">
+                                                    <span>View Results</span>
+                                                    <i class="fas fa-arrow-right"></i>
+                                                </button>
+                                            </div>
+                                            <div class="lg:w-1/3 flex items-center justify-center">
+                                                <!-- Computer vision visualization -->
+                                                <div class="w-48 h-48 bg-gradient-to-br from-neural-blue/20 to-cyber-purple/20 rounded-2xl flex items-center justify-center">
+                                                    <i class="fas fa-image text-6xl text-neural-blue opacity-60"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Mini DynamoDB Project -->
+                                <div class="w-full flex-shrink-0 px-4">
+                                    <div class="bg-space-blue/30 backdrop-blur-sm border border-cyber-purple/20 rounded-2xl p-8 cursor-pointer transform hover:scale-[1.02] transition-all duration-300" onclick="openProjectModal('dynamodb')">
+                                        <div class="flex flex-col lg:flex-row gap-8">
+                                            <div class="lg:w-2/3">
+                                                <h3 class="text-3xl font-bold text-cyber-purple mb-4">Mini DynamoDB — Distributed KV Store</h3>
+                                                <p class="text-tech-gray mb-6 leading-relaxed">
+                                                    Consistent hashing, LSM-trees, gossip; leader election with ZooKeeper. 
+                                                    Built with <span class="text-cyber-purple font-mono">C++</span>, 
+                                                    <span class="text-neural-blue font-mono">gRPC</span>, and 
+                                                    <span class="text-tech-green font-mono">ZooKeeper</span> for distributed consensus.
+                                                </p>
+                                                <div class="flex flex-wrap gap-2 mb-4">
+                                                    <span class="bg-cyber-purple/20 text-cyber-purple px-3 py-1 rounded-full text-sm font-mono">C++</span>
+                                                    <span class="bg-neural-blue/20 text-neural-blue px-3 py-1 rounded-full text-sm font-mono">gRPC</span>
+                                                    <span class="bg-tech-green/20 text-tech-green px-3 py-1 rounded-full text-sm font-mono">ZooKeeper</span>
+                                                    <span class="bg-electric-green/20 text-electric-green px-3 py-1 rounded-full text-sm font-mono">Distributed Systems</span>
+                                                </div>
+                                                <button class="text-cyber-purple hover:text-tech-green transition-colors duration-300 flex items-center gap-2">
+                                                    <span>View Architecture</span>
+                                                    <i class="fas fa-arrow-right"></i>
+                                                </button>
+                                            </div>
+                                            <div class="lg:w-1/3 flex items-center justify-center">
+                                                <!-- Database visualization -->
+                                                <div class="w-48 h-48 bg-gradient-to-br from-cyber-purple/20 to-tech-green/20 rounded-2xl flex items-center justify-center">
+                                                    <i class="fas fa-database text-6xl text-cyber-purple opacity-60"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Stock Prediction Project -->
+                                <div class="w-full flex-shrink-0 px-4">
+                                    <div class="bg-space-blue/30 backdrop-blur-sm border border-tech-green/20 rounded-2xl p-8 cursor-pointer transform hover:scale-[1.02] transition-all duration-300" onclick="openProjectModal('stocks')">
+                                        <div class="flex flex-col lg:flex-row gap-8">
+                                            <div class="lg:w-2/3">
+                                                <h3 class="text-3xl font-bold text-tech-green mb-4">US Stock Movement Prediction</h3>
+                                                <p class="text-tech-gray mb-6 leading-relaxed">
+                                                    NN vs LightGBM comparison for daily stock movement prediction. 
+                                                    Neural Network achieved <span class="text-electric-green font-mono">0.5238 accuracy</span> 
+                                                    vs LightGBM's <span class="text-neural-blue font-mono">0.5208</span> on 700+ stocks over 700 days.
+                                                </p>
+                                                <div class="flex flex-wrap gap-2 mb-4">
+                                                    <span class="bg-tech-green/20 text-tech-green px-3 py-1 rounded-full text-sm font-mono">Neural Networks</span>
+                                                    <span class="bg-neural-blue/20 text-neural-blue px-3 py-1 rounded-full text-sm font-mono">LightGBM</span>
+                                                    <span class="bg-cyber-purple/20 text-cyber-purple px-3 py-1 rounded-full text-sm font-mono">Time Series</span>
+                                                    <span class="bg-electric-green/20 text-electric-green px-3 py-1 rounded-full text-sm font-mono">Financial ML</span>
+                                                </div>
+                                                <button class="text-tech-green hover:text-electric-green transition-colors duration-300 flex items-center gap-2">
+                                                    <span>View Analysis</span>
+                                                    <i class="fas fa-arrow-right"></i>
+                                                </button>
+                                            </div>
+                                            <div class="lg:w-1/3 flex items-center justify-center">
+                                                <!-- Chart visualization -->
+                                                <div class="w-48 h-48 bg-gradient-to-br from-tech-green/20 to-electric-green/20 rounded-2xl flex items-center justify-center">
+                                                    <i class="fas fa-chart-line text-6xl text-tech-green opacity-60"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                        <!-- Carousel Navigation -->
+                        <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-space-blue/50 backdrop-blur-sm border border-neural-blue/30 text-white p-3 rounded-full hover:bg-neural-blue/30 transition-all duration-300" onclick="previousProject()">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-space-blue/50 backdrop-blur-sm border border-neural-blue/30 text-white p-3 rounded-full hover:bg-neural-blue/30 transition-all duration-300" onclick="nextProject()">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Carousel Indicators -->
+                    <div class="flex justify-center mt-8 space-x-2">
+                        <button class="w-3 h-3 rounded-full bg-electric-green transition-all duration-300" onclick="goToProject(0)" id="indicator-0"></button>
+                        <button class="w-3 h-3 rounded-full bg-tech-gray transition-all duration-300" onclick="goToProject(1)" id="indicator-1"></button>
+                        <button class="w-3 h-3 rounded-full bg-tech-gray transition-all duration-300" onclick="goToProject(2)" id="indicator-2"></button>
+                        <button class="w-3 h-3 rounded-full bg-tech-gray transition-all duration-300" onclick="goToProject(3)" id="indicator-3"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: Projects -->
+
+        <!-- @COMPONENT: Contact -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16 text-electric-green font-mono">Contact.connect</h2>
+                <div class="max-w-4xl mx-auto text-center">
+                    <p class="text-xl text-tech-gray mb-12">
+                        Let's collaborate on innovative AI/ML solutions that make a real impact.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                        <a href="mailto:namratanyams98@gmail.com" class="bg-electric-green text-deep-space px-8 py-4 rounded-lg font-semibold hover:bg-tech-green transition-all duration-300 transform hover:scale-105 flex items-center gap-3">
+                            <i class="fas fa-envelope"></i>
+                            Email Me
+                        </a>
+                        <a href="https://github.com/namratanyamagoudar" target="_blank" class="border border-neural-blue text-neural-blue px-8 py-4 rounded-lg font-semibold hover:bg-neural-blue hover:text-white transition-all duration-300 flex items-center gap-3">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="https://linkedin.com/in/namrata-nyamagoudar" target="_blank" class="border border-cyber-purple text-cyber-purple px-8 py-4 rounded-lg font-semibold hover:bg-cyber-purple hover:text-white transition-all duration-300 flex items-center gap-3">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: Contact -->
+
+    </main>
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="py-12 border-t border-space-blue/50">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-tech-gray mb-4">© 2024 Namrata Nyamagoudar. Designed with neural networks in mind.</p>
+            <div class="flex justify-center items-center gap-4">
+                <span class="text-sm text-code-gray">Theme:</span>
+                <button class="bg-space-blue/30 text-white px-4 py-2 rounded-lg hover:bg-neural-blue/30 transition-colors duration-300" id="theme-toggle">
+                    <i class="fas fa-moon"></i> Dark
+                </button>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- Project Modals -->
+    <!-- Humma.AI Modal -->
+    <div id="humma-modal" class="fixed inset-0 bg-deep-space/90 backdrop-blur-lg z-50 hidden">
+        <div class="h-full flex items-center justify-center p-6">
+            <div class="bg-space-blue/80 backdrop-blur-sm border border-electric-green/20 rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-8">
+                        <h3 class="text-3xl font-bold text-electric-green">Humma.AI Results</h3>
+                        <button onclick="closeProjectModal('humma')" class="text-tech-gray hover:text-white transition-colors duration-300">
+                            <i class="fas fa-times text-2xl"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Results Carousel for Humma.AI -->
+                    <div class="relative">
+                        <div class="overflow-hidden rounded-xl">
+                            <div class="flex transition-transform duration-500" id="humma-results-carousel">
+                                <!-- EQ Score Comparison -->
+                                <div class="w-full flex-shrink-0">
+                                    <div class="bg-deep-space/30 rounded-xl p-6">
+                                        <h4 class="text-xl font-bold text-electric-green mb-4">EQ60 Score Improvement</h4>
+                                        <div class="grid md:grid-cols-2 gap-6">
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <h5 class="text-lg font-semibold text-neural-blue mb-2">Baseline Model</h5>
+                                                <div class="text-4xl font-mono text-tech-gray">45</div>
+                                                <p class="text-sm text-tech-gray">EQ60 Score</p>
+                                            </div>
+                                            <div class="bg-electric-green/10 rounded-lg p-4">
+                                                <h5 class="text-lg font-semibold text-electric-green mb-2">Fine-tuned LLaMA 3.1</h5>
+                                                <div class="text-4xl font-mono text-electric-green">53</div>
+                                                <p class="text-sm text-tech-gray">EQ60 Score (+17.8%)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Architecture Overview -->
+                                <div class="w-full flex-shrink-0">
+                                    <div class="bg-deep-space/30 rounded-xl p-6">
+                                        <h4 class="text-xl font-bold text-neural-blue mb-4">System Architecture</h4>
+                                        <div class="space-y-4">
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <h5 class="font-semibold text-electric-green">Model: LLaMA 3.1 (8B parameters)</h5>
+                                                <p class="text-tech-gray">Fine-tuned using PEFT (LoRA) with FSDP</p>
+                                            </div>
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <h5 class="font-semibold text-neural-blue">Deployment: AWS EC2</h5>
+                                                <p class="text-tech-gray">Dockerized ReactJS frontend with real-time inference</p>
+                                            </div>
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <h5 class="font-semibold text-cyber-purple">Evaluation: NLP Metrics</h5>
+                                                <p class="text-tech-gray">VADER sentiment analysis and custom emotion analyzer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Performance Metrics -->
+                                <div class="w-full flex-shrink-0">
+                                    <div class="bg-deep-space/30 rounded-xl p-6">
+                                        <h4 class="text-xl font-bold text-cyber-purple mb-4">Performance Analysis</h4>
+                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <div class="text-2xl font-mono text-electric-green">8B</div>
+                                                <p class="text-sm text-tech-gray">Parameters</p>
+                                            </div>
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <div class="text-2xl font-mono text-neural-blue">LoRA</div>
+                                                <p class="text-sm text-tech-gray">PEFT Method</p>
+                                            </div>
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <div class="text-2xl font-mono text-tech-green">EC2</div>
+                                                <p class="text-sm text-tech-gray">Deployment</p>
+                                            </div>
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <div class="text-2xl font-mono text-cyber-purple">53</div>
+                                                <p class="text-sm text-tech-gray">Final EQ60</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-space-blue/50 text-white p-2 rounded-full hover:bg-neural-blue/50 transition-all duration-300" onclick="previousResult('humma')">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-space-blue/50 text-white p-2 rounded-full hover:bg-neural-blue/50 transition-all duration-300" onclick="nextResult('humma')">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Similar modals for other projects would go here -->
+    <!-- Inpainting Modal -->
+    <div id="inpainting-modal" class="fixed inset-0 bg-deep-space/90 backdrop-blur-lg z-50 hidden">
+        <div class="h-full flex items-center justify-center p-6">
+            <div class="bg-space-blue/80 backdrop-blur-sm border border-neural-blue/20 rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-8">
+                        <h3 class="text-3xl font-bold text-neural-blue">Heritage Inpainting Results</h3>
+                        <button onclick="closeProjectModal('inpainting')" class="text-tech-gray hover:text-white transition-colors duration-300">
+                            <i class="fas fa-times text-2xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="relative">
+                        <div class="overflow-hidden rounded-xl">
+                            <div class="flex transition-transform duration-500" id="inpainting-results-carousel">
+                                <!-- Model Comparison -->
+                                <div class="w-full flex-shrink-0">
+                                    <div class="bg-deep-space/30 rounded-xl p-6">
+                                        <h4 class="text-xl font-bold text-neural-blue mb-4">GAN Architecture Comparison</h4>
+                                        <div class="grid md:grid-cols-2 gap-6">
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <h5 class="text-lg font-semibold text-neural-blue mb-2">WGAN-GP</h5>
+                                                <p class="text-tech-gray">Wasserstein GAN with Gradient Penalty for stable training</p>
+                                            </div>
+                                            <div class="bg-cyber-purple/10 rounded-lg p-4">
+                                                <h5 class="text-lg font-semibold text-cyber-purple mb-2">DC-GAN</h5>
+                                                <p class="text-tech-gray">Deep Convolutional GAN for high-quality inpainting</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Pipeline Overview -->
+                                <div class="w-full flex-shrink-0">
+                                    <div class="bg-deep-space/30 rounded-xl p-6">
+                                        <h4 class="text-xl font-bold text-tech-green mb-4">Processing Pipeline</h4>
+                                        <div class="space-y-4">
+                                            <div class="flex items-center gap-4 bg-space-blue/20 rounded-lg p-4">
+                                                <div class="w-8 h-8 bg-neural-blue rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                                                <div>
+                                                    <h5 class="font-semibold text-neural-blue">Mask R-CNN Segmentation</h5>
+                                                    <p class="text-tech-gray">Instance segmentation for occlusion detection</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center gap-4 bg-space-blue/20 rounded-lg p-4">
+                                                <div class="w-8 h-8 bg-cyber-purple rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                                                <div>
+                                                    <h5 class="font-semibold text-cyber-purple">Contextual Attention</h5>
+                                                    <p class="text-tech-gray">GAN-based inpainting with semantic understanding</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center gap-4 bg-space-blue/20 rounded-lg p-4">
+                                                <div class="w-8 h-8 bg-tech-green rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                                                <div>
+                                                    <h5 class="font-semibold text-tech-green">3D Reconstruction</h5>
+                                                    <p class="text-tech-gray">Heritage site modeling from inpainted images</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-space-blue/50 text-white p-2 rounded-full hover:bg-neural-blue/50 transition-all duration-300" onclick="previousResult('inpainting')">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-space-blue/50 text-white p-2 rounded-full hover:bg-neural-blue/50 transition-all duration-300" onclick="nextResult('inpainting')">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DynamoDB Modal -->
+    <div id="dynamodb-modal" class="fixed inset-0 bg-deep-space/90 backdrop-blur-lg z-50 hidden">
+        <div class="h-full flex items-center justify-center p-6">
+            <div class="bg-space-blue/80 backdrop-blur-sm border border-cyber-purple/20 rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-8">
+                        <h3 class="text-3xl font-bold text-cyber-purple">Mini DynamoDB Architecture</h3>
+                        <button onclick="closeProjectModal('dynamodb')" class="text-tech-gray hover:text-white transition-colors duration-300">
+                            <i class="fas fa-times text-2xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="relative">
+                        <div class="overflow-hidden rounded-xl">
+                            <div class="flex transition-transform duration-500" id="dynamodb-results-carousel">
+                                <!-- System Architecture -->
+                                <div class="w-full flex-shrink-0">
+                                    <div class="bg-deep-space/30 rounded-xl p-6">
+                                        <h4 class="text-xl font-bold text-cyber-purple mb-4">Distributed System Components</h4>
+                                        <div class="grid md:grid-cols-3 gap-4">
+                                            <div class="bg-space-blue/20 rounded-lg p-4 text-center">
+                                                <i class="fas fa-network-wired text-3xl text-cyber-purple mb-2"></i>
+                                                <h5 class="font-semibold text-cyber-purple">Consistent Hashing</h5>
+                                                <p class="text-tech-gray text-sm">Dynamic sharding & replication</p>
+                                            </div>
+                                            <div class="bg-space-blue/20 rounded-lg p-4 text-center">
+                                                <i class="fas fa-tree text-3xl text-neural-blue mb-2"></i>
+                                                <h5 class="font-semibold text-neural-blue">LSM-Trees</h5>
+                                                <p class="text-tech-gray text-sm">Optimized read/write throughput</p>
+                                            </div>
+                                            <div class="bg-space-blue/20 rounded-lg p-4 text-center">
+                                                <i class="fas fa-comments text-3xl text-tech-green mb-2"></i>
+                                                <h5 class="font-semibold text-tech-green">Gossip Protocol</h5>
+                                                <p class="text-tech-gray text-sm">Eventual consistency</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Technical Stack -->
+                                <div class="w-full flex-shrink-0">
+                                    <div class="bg-deep-space/30 rounded-xl p-6">
+                                        <h4 class="text-xl font-bold text-electric-green mb-4">Technology Stack</h4>
+                                        <div class="space-y-4">
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <h5 class="font-semibold text-cyber-purple">Core: C++ with gRPC</h5>
+                                                <p class="text-tech-gray">High-performance inter-node communication</p>
+                                            </div>
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <h5 class="font-semibold text-neural-blue">Consensus: Apache ZooKeeper</h5>
+                                                <p class="text-tech-gray">Leader election and fault tolerance</p>
+                                            </div>
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <h5 class="font-semibold text-tech-green">Storage: LSM-Tree Implementation</h5>
+                                                <p class="text-tech-gray">Efficient key-value storage with compaction</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-space-blue/50 text-white p-2 rounded-full hover:bg-neural-blue/50 transition-all duration-300" onclick="previousResult('dynamodb')">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-space-blue/50 text-white p-2 rounded-full hover:bg-neural-blue/50 transition-all duration-300" onclick="nextResult('dynamodb')">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stocks Modal -->
+    <div id="stocks-modal" class="fixed inset-0 bg-deep-space/90 backdrop-blur-lg z-50 hidden">
+        <div class="h-full flex items-center justify-center p-6">
+            <div class="bg-space-blue/80 backdrop-blur-sm border border-tech-green/20 rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-8">
+                        <h3 class="text-3xl font-bold text-tech-green">Stock Prediction Analysis</h3>
+                        <button onclick="closeProjectModal('stocks')" class="text-tech-gray hover:text-white transition-colors duration-300">
+                            <i class="fas fa-times text-2xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="relative">
+                        <div class="overflow-hidden rounded-xl">
+                            <div class="flex transition-transform duration-500" id="stocks-results-carousel">
+                                <!-- Model Performance -->
+                                <div class="w-full flex-shrink-0">
+                                    <div class="bg-deep-space/30 rounded-xl p-6">
+                                        <h4 class="text-xl font-bold text-tech-green mb-4">Model Performance Comparison</h4>
+                                        <div class="grid md:grid-cols-3 gap-4">
+                                            <div class="bg-space-blue/20 rounded-lg p-4 text-center">
+                                                <h5 class="font-semibold text-tech-gray mb-2">Polynomial Regression</h5>
+                                                <div class="text-3xl font-mono text-tech-gray">0.5083</div>
+                                                <p class="text-sm text-tech-gray">Accuracy (Failed at degree >5)</p>
+                                            </div>
+                                            <div class="bg-neural-blue/10 rounded-lg p-4 text-center">
+                                                <h5 class="font-semibold text-neural-blue mb-2">LightGBM</h5>
+                                                <div class="text-3xl font-mono text-neural-blue">0.5208</div>
+                                                <p class="text-sm text-tech-gray">Accuracy (Overfitting)</p>
+                                            </div>
+                                            <div class="bg-tech-green/10 rounded-lg p-4 text-center border border-tech-green/20">
+                                                <h5 class="font-semibold text-tech-green mb-2">Neural Network</h5>
+                                                <div class="text-3xl font-mono text-tech-green">0.5238</div>
+                                                <p class="text-sm text-tech-gray">Best Accuracy</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Dataset Overview -->
+                                <div class="w-full flex-shrink-0">
+                                    <div class="bg-deep-space/30 rounded-xl p-6">
+                                        <h4 class="text-xl font-bold text-electric-green mb-4">Dataset Characteristics</h4>
+                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <div class="text-2xl font-mono text-electric-green">745K</div>
+                                                <p class="text-sm text-tech-gray">Training Samples</p>
+                                            </div>
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <div class="text-2xl font-mono text-neural-blue">320K</div>
+                                                <p class="text-sm text-tech-gray">Test Samples</p>
+                                            </div>
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <div class="text-2xl font-mono text-cyber-purple">74</div>
+                                                <p class="text-sm text-tech-gray">Features</p>
+                                            </div>
+                                            <div class="bg-space-blue/20 rounded-lg p-4">
+                                                <div class="text-2xl font-mono text-tech-green">700</div>
+                                                <p class="text-sm text-tech-gray">Stocks × Days</p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-6 bg-space-blue/20 rounded-lg p-4">
+                                            <h5 class="font-semibold text-neural-blue mb-2">Neural Network Architecture</h5>
+                                            <p class="text-tech-gray">9 layers, 10 epochs, linear activation, MSE loss, Adam optimizer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-space-blue/50 text-white p-2 rounded-full hover:bg-neural-blue/50 transition-all duration-300" onclick="previousResult('stocks')">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-space-blue/50 text-white p-2 rounded-full hover:bg-neural-blue/50 transition-all duration-300" onclick="nextResult('stocks')">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            let currentProject = 0;
+            const totalProjects = 4;
+            const resultCarousels = {
+                'humma': { current: 0, total: 3 },
+                'inpainting': { current: 0, total: 2 },
+                'dynamodb': { current: 0, total: 2 },
+                'stocks': { current: 0, total: 2 }
+            };
+
+            // Project carousel navigation
+            window.nextProject = function() {
+                currentProject = (currentProject + 1) % totalProjects;
+                updateProjectCarousel();
+            };
+
+            window.previousProject = function() {
+                currentProject = (currentProject - 1 + totalProjects) % totalProjects;
+                updateProjectCarousel();
+            };
+
+            window.goToProject = function(index) {
+                currentProject = index;
+                updateProjectCarousel();
+            };
+
+            function updateProjectCarousel() {
+                const carousel = document.getElementById('projects-carousel');
+                const translateX = -currentProject * 100;
+                carousel.style.transform = `translateX(${translateX}%)`;
+                
+                // Update indicators
+                for (let i = 0; i < totalProjects; i++) {
+                    const indicator = document.getElementById(`indicator-${i}`);
+                    if (i === currentProject) {
+                        indicator.className = 'w-3 h-3 rounded-full bg-electric-green transition-all duration-300';
+                    } else {
+                        indicator.className = 'w-3 h-3 rounded-full bg-tech-gray transition-all duration-300';
+                    }
+                }
+            }
+
+            // Project modal functions
+            window.openProjectModal = function(projectId) {
+                const modal = document.getElementById(`${projectId}-modal`);
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            };
+
+            window.closeProjectModal = function(projectId) {
+                const modal = document.getElementById(`${projectId}-modal`);
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            };
+
+            // Result carousel navigation
+            window.nextResult = function(projectId) {
+                const carousel = resultCarousels[projectId];
+                carousel.current = (carousel.current + 1) % carousel.total;
+                updateResultCarousel(projectId);
+            };
+
+            window.previousResult = function(projectId) {
+                const carousel = resultCarousels[projectId];
+                carousel.current = (carousel.current - 1 + carousel.total) % carousel.total;
+                updateResultCarousel(projectId);
+            };
+
+            function updateResultCarousel(projectId) {
+                const carousel = document.getElementById(`${projectId}-results-carousel`);
+                const current = resultCarousels[projectId].current;
+                const translateX = -current * 100;
+                carousel.style.transform = `translateX(${translateX}%)`;
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowRight') {
+                    nextProject();
+                } else if (e.key === 'ArrowLeft') {
+                    previousProject();
+                } else if (e.key === 'Escape') {
+                    // Close any open modals
+                    document.querySelectorAll('[id$="-modal"]').forEach(modal => {
+                        if (!modal.classList.contains('hidden')) {
+                            const projectId = modal.id.replace('-modal', '');
+                            closeProjectModal(projectId);
+                        }
+                    });
+                }
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    // TODO: Implement mobile menu toggle
+                    console.log('Mobile menu toggle - implement mobile menu');
+                });
+            }
+
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    // TODO: Implement theme toggle
+                    console.log('Theme toggle - implement light/dark theme switching');
+                });
+            }
+
+            // Close modals when clicking outside
+            document.querySelectorAll('[id$="-modal"]').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        const projectId = modal.id.replace('-modal', '');
+                        closeProjectModal(projectId);
+                    }
+                });
+            });
+
+            // Initialize carousel
+            updateProjectCarousel();
+        })();
+    </script>
+</body>
+</html>

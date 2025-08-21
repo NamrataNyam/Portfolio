@@ -1,0 +1,7 @@
+# PEFT Fine-tuning Architecture
+# This is a placeholder for the model architecture diagram
+# Replace this file with the actual PNG image showing:
+# - PEFT fine-tuning pipeline with LoRA and FSDP
+# - AWS EC2/S3 deployment architecture
+# - Model training and inference workflow
+# - Docker containerization setup

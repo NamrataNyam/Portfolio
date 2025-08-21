@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { Code, Mail, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { portfolio } from "@/data/portfolio";
-import { AvatarUpload } from "@/components/AvatarUpload";
+import { AnimatedTyping } from "./AnimatedTyping";
 
 export function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -23,15 +22,7 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="mb-8 flex flex-col items-center"
           >
-            {/* Hero Avatar Photo */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="mb-8"
-            >
-              <AvatarUpload size="md" />
-            </motion.div>
+
 
             <h1 className="text-5xl lg:text-7xl font-bold text-charcoal dark:text-white mb-6 tracking-tight">
               <motion.span
@@ -51,9 +42,18 @@ export function Hero() {
                 Nyamagoudar
               </motion.span>
             </h1>
-            <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              {portfolio.hero.tagline}
-            </p>
+            <AnimatedTyping 
+              titles={[
+                "Data Scientist",
+                "Software Developer", 
+                "Founding Engineer",
+                "Cloud Consultant",
+                "AI/ML Engineer"
+              ]}
+              typingSpeed={80}
+              deletingSpeed={40}
+              pauseTime={2500}
+            />
           </motion.div>
 
           <motion.div

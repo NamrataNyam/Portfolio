@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { Brain, Eye, Database } from "lucide-react";
+import { Brain, Eye, Database, Cloud } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
-import { PhotoUpload } from "@/components/PhotoUpload";
 
 export function About() {
   const skills = [
@@ -19,6 +18,11 @@ export function About() {
       icon: Database,
       title: "Data Platforms",
       description: "Snowflake, ETL pipelines, multi-tenant architectures"
+    },
+    {
+      icon: Cloud,
+      title: "Cloud & DevOps",
+      description: "AWS, Azure, Docker, Kubernetes, CI/CD, Git, MLOps"
     }
   ];
 
@@ -46,7 +50,13 @@ export function About() {
               viewport={{ once: true }}
               className="text-center lg:text-left"
             >
-              <PhotoUpload />
+              <div className="w-96 h-96 mx-auto lg:mx-0 rounded-2xl overflow-hidden border-2 border-sage/20 shadow-lg">
+                <img
+                  src="/images/me/WhatsApp Image 2025-08-19 at 6.43.23 PM.jpeg"
+                  alt="Namrata Nyamagoudar - Graduation Photo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </motion.div>
 
             {/* About Text */}
@@ -58,9 +68,9 @@ export function About() {
               className="space-y-6"
             >
               <div>
-                <h3 className="text-2xl font-semibold text-charcoal dark:text-white mb-4">
+                {/* <h3 className="text-2xl font-semibold text-charcoal dark:text-white mb-4">
                   AI/ML Engineer & Data Platform Specialist
-                </h3>
+                </h3> */}
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {portfolio.about}
                 </p>
@@ -94,6 +104,64 @@ export function About() {
               </div>
             </motion.div>
           </div>
+
+          {/* Education Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h3 className="text-2xl font-semibold text-charcoal dark:text-white mb-8">Education</h3>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* UC Irvine */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="flex items-center gap-4 p-6 rounded-lg border border-border hover:shadow-lg transition-all duration-300 group"
+              >
+                <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+                  <img
+                    src="/images/Education/University_of_California,_Irvine_seal.svg.png"
+                    alt="UC Irvine Seal"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="text-left">
+                  <h4 className="font-semibold text-charcoal dark:text-white group-hover:text-sage transition-colors duration-300">
+                    University of California, Irvine
+                  </h4>
+                  <p className="text-sage font-medium">Master's in Data Science</p>
+                </div>
+              </motion.div>
+
+              {/* KLE Technological University */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                viewport={{ once: true }}
+                className="flex items-center gap-4 p-6 rounded-lg border border-border hover:shadow-lg transition-all duration-300 group"
+              >
+                <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+                  <img
+                    src="/images/Education/kle.jpeg"
+                    alt="KLE Technological University Logo"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="text-left">
+                  <h4 className="font-semibold text-charcoal dark:text-white group-hover:text-sage transition-colors duration-300">
+                    KLE Technological University
+                  </h4>
+                  <p className="text-sage font-medium">BE in Computer Science and Engineering</p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

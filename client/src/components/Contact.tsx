@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Send } from "lucide-react";
+import { Mail, Github, Linkedin, Send, BookOpen } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -56,6 +56,13 @@ export function Contact() {
       description: "Professional network",
       href: portfolio.contact.linkedin,
       color: "text-blue-600"
+    },
+    {
+      icon: BookOpen,
+      title: "ResearchGate",
+      description: "View my research publications",
+      href: "https://www.researchgate.net/publication/387722896_Generative_Models_For_Fashion_Design_and_Innovation",
+      color: "text-green-600"
     }
   ];
 
