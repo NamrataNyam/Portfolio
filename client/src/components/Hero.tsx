@@ -77,16 +77,16 @@ export function Hero() {
               <Mail className="mr-2 h-4 w-4" />
               Get in Touch
             </Button>
-            <Button
+            {/* <Button
               variant="ghost"
               asChild
               className="text-muted-foreground hover:text-sage px-8 py-3 h-auto"
             >
-              {/* <a href="/resume/Namrata_Nyamagoudar_Resume.pdf" target="_blank">
+              <a href="/resume/Namrata_Nyamagoudar_Resume.pdf" target="_blank">
                 <Download className="mr-2 h-4 w-4" />
                 Download Résumé
-              </a> */}
-            </Button>
+              </a>
+            </Button> */}
           </motion.div>
         </div>
       </div>
