@@ -77,7 +77,7 @@ export const portfolio = {
       role: "Data Science Analyst (Founding Engineer)",
       location: "San Francisco, USA",
       start: "Jun 2025",
-      end: "Present",
+      end: "Mar 2026",
       bullets: [
         "Architected a multi-tenant Snowflake platform with dynamic database/schema provisioning, Snowflake OpenFlow, RBAC, and automated onboarding workflows — reducing customer setup time by 80%.",
         "Developed Python Snowpark ETL pipelines to normalize CRM data into fact/dimension star schema, implemented lead scoring models with feature engineering and AutoML to prioritize high-value opportunities.",
