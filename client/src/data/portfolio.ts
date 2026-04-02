@@ -67,7 +67,7 @@ export const portfolio = {
     ctas: [
       { label: "View Projects", href: "#projects", style: "primary" },
       { label: "Get in Touch", href: "#contact", style: "ghost" },
-      { label: "Download Résumé", href: "/resume/Namrata_Nyamagoudar_Resume.pdf", style: "outline" }
+      //{ label: "Download Résumé", href: "/resume/Namrata_Nyamagoudar_Resume.pdf", style: "outline" }
     ]
   },
   about: "I am a Machine Learning Engineer and Data Scientist with a Master’s in Data Science from UC Irvine and a B.E. in Computer Science from KLE Technological University. My experience spans from building decision-engine pipelines at Deloitte to leading AI innovation as a Founding Engineer at Hivekind.ai, where I developed scalable Snowflake platforms, RAG pipelines with Cortex AI and AWS Bedrock, and agentic AI systems that streamlined onboarding and sales workflows. Skilled in Python, SQL, cloud platforms (AWS, Azure), and ML frameworks (PyTorch, TensorFlow, HuggingFace), I specialize in Generative AI, data engineering, and deploying cloud-native solutions that drive measurable business impact.",

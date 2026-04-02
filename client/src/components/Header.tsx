@@ -55,9 +55,9 @@ export function Header() {
               asChild
               className="bg-sage hover:bg-sage-dark text-white"
             >
-              <a href="/resume/Namrata_Nyamagoudar_Resume.pdf" target="_blank">
+              {/* <a href="/resume/Namrata_Nyamagoudar_Resume.pdf" target="_blank">
                 Resume
-              </a>
+              </a> */}
             </Button>
             <Button
               variant="ghost"
