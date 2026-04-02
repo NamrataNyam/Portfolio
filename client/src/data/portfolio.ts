@@ -74,7 +74,7 @@ export const portfolio = {
   experience: [
     {
       company: "Hivekind.ai",
-      role: "Founding Engineer",
+      role: "Data Science Analyst (Founding Engineer)",
       location: "San Francisco, USA",
       start: "Jun 2025",
       end: "Present",
@@ -92,12 +92,12 @@ export const portfolio = {
     },
     {
       company: "Deloitte Consulting",
-      role: "Cloud Consultant",
+      role: "Analyst",
       location: "Bengaluru, India",
       start: "Sep 2021",
       end: "Jul 2023",
       bullets: [
-        "Led the development of Azure DevOps CI/CD pipelines using Powershell and YAML to build and release features to higher environments for Commercial off the shelf(COTS) decision engine flow.",
+        "Worked as Cloud Consultant to build Azure DevOps CI/CD pipelines using Powershell and YAML to build andrelease features to higher environments for Commercial off the shelf(COTS) decision engine flow.",
         "Performed application and data migration from on-prem to Azure, deploying the web app to Azure App Service and transferring MS SQL database to Azure SQL.",
         "Integrated web application with risk analytics decision engine via REST APIs and Azure Service Bus Queues, containerized the application using Docker and Azure Kubernetes Services.",
         "Collaborated with the .NET team to build a custom ETL pipeline using ASP.NET and C#.NET to extract and parse hierarchical XML data from the web application.",
@@ -115,7 +115,7 @@ export const portfolio = {
       role: "SDE Intern",
       location: "Bengaluru, India",
       start: "Mar 2021",
-      end: "Jul 2021",
+      end: "June 2021",
       bullets: [
         "Built a real-time object detection and tracking model using YOLOV4 using Darknet framework and DeepSORT to detect and track anomalies and foreign objects for tablet packaging machine in a Linux environment(Ubuntu).",
         "Developed framework for multi-object detection and tracking, employing Cosine metric learning and Kalman filters to track identical tablets/capsules and foreign objects, used Attention Maps improving detection accuracy by 30%.",
